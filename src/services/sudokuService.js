@@ -1,8 +1,8 @@
 
 class SudokuService {
+    solvingProcess = [];
 
     getRandomExample() {
-        solvingProcess = [];
 
         const examples = [
             [
