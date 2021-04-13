@@ -1,14 +1,17 @@
 import React from 'react';
 
-function Square({ id, value }) {
+function Square({ id, value, onChange, style, disabled }) {
     return (
         <input
+            className="square"
             type="text"
             value={value}
-            className="square"
             id={id}
+            onChange={(e) => onChange(e, id)}
             maxLength="1"
             autoComplete="off"
+            style={style}
+            disabled={disabled}
 
         />
     )

@@ -1,7 +1,7 @@
 import React from 'react';
 import Square from './square';
 
-function Board() {
+function Board({ startBoard, board, onChange, disabled }) {
     const renderSquare = () => {
         const squares = [];
 
@@ -12,6 +12,11 @@ function Board() {
                     <Square
                         key={index}
                         id={index}
+                        onChange={onChange}
+                        value={board[i][j] === 0 ? "" : board[i][j]}
+                        style={startBoard[i][j] === 0 ? { color: "red" } : { color: "black" }}
+                        disabled={disabled}
+
                     />
                 )
             }

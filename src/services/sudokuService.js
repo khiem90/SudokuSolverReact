@@ -1,3 +1,8 @@
+export const EMPTY_START_BOARD = () =>
+    new Array(9).fill(null).map(() => new Array(9));
+export const EMPTY_BOARD = () =>
+    new Array(9).fill(null).map(() => new Array(9).fill(0));
+
 
 class SudokuService {
     solvingProcess = [];
@@ -54,19 +59,15 @@ class SudokuService {
 
     isValid(board, row, col, value) {
         for (let i = 0; i < board.length; i++) {
-            if (board[row][i] === value && i !== row) {
-                return false;
-            }
-            if (board[i][col] === value && i !== col) {
-                return false;
-            }
+            if (board[i][col] === value && i !== row) return false;
+            if (board[row][i] === value && i !== col) return false;
         }
 
         const x = Math.floor(row / 3) * 3;
         const y = Math.floor(col / 3) * 3;
 
-        for (let i = 0; i < x + 3; i++) {
-            for (let j = 0; j < y + 3; j++) {
+        for (let i = x; i < x + 3; i++) {
+            for (let j = y; j < y + 3; j++) {
                 if (board[i][j] === value && i !== row && j !== col) {
                     return false
                 }
@@ -83,7 +84,7 @@ class SudokuService {
         const values = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
         if (findEmptySquare) {
-            findEmptySquare = position;
+            position = findEmptySquare;
         } else return true
 
         while (values.length !== 0) {
@@ -109,4 +110,4 @@ class SudokuService {
 
 }
 
-export default SudokuService;
+export default new SudokuService();
