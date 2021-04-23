@@ -14,18 +14,17 @@ class SudokuService {
 
         const raw = makepuzzle();
         const result = []
-
         for (let i = 0; i < 9; i++) {
             const row = []
             for (let j = 0; j < 9; j++) {
-                const value = raw[i * 9 + j];
+                let value = raw[i * 9 + j];
+                value === 0 ? value = null : value = value;
                 const col = value;
                 row.push(col);
             }
 
             result.push(row);
         }
-        console.log(result)
         return result;
     }
 
