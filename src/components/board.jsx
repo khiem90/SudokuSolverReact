@@ -13,8 +13,8 @@ function Board({ startBoard, board, onChange, disabled }) {
                         key={index}
                         id={index}
                         onChange={onChange}
-                        value={board[i][j] === 0 ? "" : board[i][j]}
-                        style={startBoard[i][j] === 0 ? { color: "red" } : { color: "black" }}
+                        value={board[i][j] === null ? "" : board[i][j]}
+                        style={startBoard[i][j] === null ? { color: "red" } : { color: "black" }}
                         disabled={disabled}
 
                     />

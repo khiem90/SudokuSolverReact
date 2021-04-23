@@ -98,6 +98,7 @@ function SudokuSolver() {
                     onReset={reset}
                     undo={undo}
                     disabled={isSolving}
+                    isSolved={isSolved}
                     processChecked={isShowProgressChecked}
                     onChange={(e) => setIsShowProgressChecked(e.target.checked)}
                 />
