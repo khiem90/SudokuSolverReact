@@ -18,8 +18,8 @@ class SudokuService {
             const row = []
             for (let j = 0; j < 9; j++) {
                 let value = raw[i * 9 + j];
-                value === 0 ? value = null : value = value;
-                const col = value;
+                let col = value;
+                value === 0 ? col = null : col = value;
                 row.push(col);
             }
 
